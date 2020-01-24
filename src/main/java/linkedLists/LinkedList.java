@@ -1,5 +1,8 @@
 package linkedLists;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 /** A class representing a linked list.*/
 public class LinkedList {
     private Node head, tail;
@@ -11,6 +14,10 @@ public class LinkedList {
 
     public Node head() {
         return head;
+    }
+
+    public Node tail() {
+        return tail;
     }
 
     /** Inserts a new node to the front of the list */
@@ -119,6 +126,43 @@ public class LinkedList {
         }
     }
 
+    public Iterator iterator() {
+        return new InnerIterator(0);
+    }
+
+    public Iterator iterator(int i) {
+        return new InnerIterator(i);
+    }
+
+    private class InnerIterator implements Iterator {
+
+        private Node nextNode;  // "next" node (really a current node)
+
+        public InnerIterator(int index) {
+            nextNode = head;
+            for (int i = 0; i < index; i++) {
+                nextNode = nextNode.next();
+            }
+        }
+
+        public boolean hasNext() {
+            return nextNode != null;
+        }
+
+        /** Return the value of the node right after current */
+        public Object next() {
+            if (!hasNext()) {
+                System.out.println("No next element");
+                throw new NoSuchElementException();
+            }
+            int elem = nextNode.elem();
+            nextNode = nextNode.next();
+            return elem;
+        }
+        // How would you implement add and remove methods for this iterator?
+        // Not shown here
+
+    }
 }
 
 

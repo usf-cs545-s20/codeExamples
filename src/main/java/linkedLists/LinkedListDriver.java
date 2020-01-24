@@ -1,5 +1,7 @@
 package linkedLists;
 
+import java.util.Iterator;
+
 /** Creates a LinkedList and calls its methods */
 public class LinkedListDriver {
     public static void main(String[] args) {
@@ -20,6 +22,11 @@ public class LinkedListDriver {
         System.out.println("Removed element after head; passed head as the previous node");
         list.remove(list.head());
         list.printNodes();
+
+        System.out.println("Iterate using the iterator");
+        Iterator it = list.iterator();
+        while (it.hasNext())
+            System.out.println(it.next());
 
         /*list.insert(5, 99);
         System.out.println("After inserting 99 at index 2: ");
