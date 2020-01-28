@@ -82,6 +82,7 @@ public class LinkedList {
         if ((previousNode == null) || (previousNode.next() == null)) {
             System.out.println("Nothing to remove");
             return Integer.MAX_VALUE;
+            // would be better to throw new IllegalArgumentException();
         }
         int elem = previousNode.next().elem();
 

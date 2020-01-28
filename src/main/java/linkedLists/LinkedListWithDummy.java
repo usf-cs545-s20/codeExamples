@@ -1,7 +1,5 @@
 package linkedLists;
 
-import jdk.jshell.spi.ExecutionControl;
-
 import java.util.ListIterator; // we want to implement more methods than hasNext() and next()
 
 /** A Linked List with the dummy head */
