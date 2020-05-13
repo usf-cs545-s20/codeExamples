@@ -1,5 +1,6 @@
 package finalExam;
 
+/** Not used in the final exam - ignore this class! */
 public class MinHeap {
     private int[] heap; // the array to store the heap
     private int maxsize; // the size of the array
